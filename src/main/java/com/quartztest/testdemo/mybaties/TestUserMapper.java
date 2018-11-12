@@ -25,6 +25,15 @@ public interface TestUserMapper {
     @Insert("insert into test_users(name, sex)values(#{name},#{sex})")
     void addUser(TestUser testUser);
 
+
+    @Select("SELECT * FROM test_users")
+    @Results({
+            @Result(property = "name", column = "name"),
+            @Result(property = "sex", column = "sex")
+    })
+    List<TestUser> getAUser();
+
+
     @SelectProvider(type = UserDaoProvider.class, method = "findUserByName")
     List<TestUser> getByUserName(String name);
 
