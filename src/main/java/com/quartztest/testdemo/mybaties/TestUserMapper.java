@@ -35,7 +35,7 @@ public interface TestUserMapper {
 
 
     @SelectProvider(type = UserDaoProvider.class, method = "findUserByName")
-    List<TestUser> getByUserName(String name);
+    List<TestUser> getByUserNam(String name);
 
     class UserDaoProvider {
         public String findUserByName(String name) {
